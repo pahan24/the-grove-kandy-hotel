@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Morning Dew Hotel</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 flex min-h-screen">
+    <aside class="w-64 bg-primary text-white flex flex-col">
+        <div class="p-8 text-center border-b border-white/10 text-xl font-playfair tracking-widest uppercase">Admin
+            Panel</div>
+        <nav class="flex-1 p-6 space-y-4 text-xs uppercase tracking-widest text-gray-400">
+            <a href="#" class="block text-white hover:text-secondary transition-colors font-bold">Dashboard</a>
+            <a href="#" class="block hover:text-secondary transition-colors">Bookings</a>
+            <a href="#" class="block hover:text-secondary transition-colors">Rooms</a>
+            <a href="#" class="block hover:text-secondary transition-colors">Messages</a>
+            <a href="#" class="block hover:text-secondary transition-colors">Offers</a>
+            <a href="#" class="block hover:text-secondary transition-colors">Events</a>
+        </nav>
+        <div class="p-6">
+            <button id="logout"
+                class="w-full text-left text-xs uppercase tracking-widest text-gray-500 hover:text-white flex items-center space-x-2">
+                <span>Logout</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-10">
+        <header class="flex justify-between items-center mb-10">
+            <h1 class="text-2xl font-semibold">Dashboard Overview</h1>
+            <div class="text-sm text-gray-500" id="admin-user">Welcome, Admin</div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+            <div class="bg-white p-6 shadow-sm border border-gray-100 rounded-lg">
+                <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Total Bookings</div>
+                <div class="text-2xl font-semibold" id="count-bookings">--</div>
+            </div>
+            <div class="bg-white p-6 shadow-sm border border-gray-100 rounded-lg">
+                <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Unread Messages</div>
+                <div class="text-2xl font-semibold" id="count-messages">--</div>
+            </div>
+            <div class="bg-white p-6 shadow-sm border border-gray-100 rounded-lg">
+                <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Active Offers</div>
+                <div class="text-2xl font-semibold" id="count-offers">--</div>
+            </div>
+            <div class="bg-white p-6 shadow-sm border border-gray-100 rounded-lg">
+                <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Room Types</div>
+                <div class="text-2xl font-semibold">4</div>
+            </div>
+        </div>
+
+        <div class="bg-white shadow-sm border border-gray-100 rounded-lg overflow-hidden">
+            <div class="p-6 border-b border-gray-50 font-semibold text-sm">Recent Activity</div>
+            <div class="p-6 text-center text-gray-400 italic text-sm">
+                Real-time activity feed will appear here...
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple Auth Check
+        const token = localStorage.getItem('admin_token');
+        if (!token) window.location.href = '/admin';
+
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.removeItem('admin_token');
+            window.location.href = '/admin';
+        });
+
+        // Fetch data from API
+        async function fetchStats() {
+            try {
+                const res = await fetch('/api/admin/stats', {
+                    headers: { 'Authorization': token }
+                });
+                if (res.ok) {
+                    const stats = await res.json();
+                    document.getElementById('count-bookings').innerText = stats.bookings;
+                    document.getElementById('count-messages').innerText = stats.messages;
+                    document.getElementById('count-offers').innerText = stats.offers;
+                }
+            } catch (err) {
+                console.error('Failed to fetch stats', err);
+            }
+        }
+        fetchStats();
+    </script>
+</body>
+
+</html>

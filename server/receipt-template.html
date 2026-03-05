@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation | Morning Dew Hotel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #1a2e1a;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hotel-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a2e1a;
+            text-transform: uppercase;
+        }
+
+        .receipt-title {
+            font-size: 18px;
+            color: #c5a059;
+            margin-top: 5px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 50%;
+            padding-bottom: 10px;
+        }
+
+        .label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .value {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #eee;
+            pt: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="hotel-name">Morning Dew Hotel</div>
+        <div class="receipt-title">Reservation Confirmation</div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Guest Details</div>
+        <div class="grid">
+            <div class="col">
+                <div class="label">Name</div>
+                <div class="value">${guestName}</div>
+            </div>
+            <div class="col">
+                <div class="label">Email</div>
+                <div class="value">${email}</div>
+            </div>
+            <div class="col">
+                <div class="label">Phone</div>
+                <div class="value">${phone}</div>
+            </div>
+            <div class="col">
+                <div class="label">Booking ID</div>
+                <div class="value">#${bookingId}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Stay Details</div>
+        <div class="grid">
+            <div class="col">
+                <div class="label">Room Type</div>
+                <div class="value">${roomType}</div>
+            </div>
+            <div class="col">
+                <div class="label">Check-In</div>
+                <div class="value">${checkIn}</div>
+            </div>
+            <div class="col">
+                <div class="label">Check-Out</div>
+                <div class="value">${checkOut}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Thank you for choosing Morning Dew Hotel Ella. We look forward to your arrival.<br>
+        Wamullahena, Ella, Sri Lanka | +94 57 493 3373
+    </div>
+</body>
+
+</html>

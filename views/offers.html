@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers & Packages | Morning Dew Hotel Ella</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-white">
+    <!-- Navbar -->
+    <nav id="navbar"
+        class="fixed top-0 left-0 w-full z-50 py-6 px-10 flex justify-between items-center text-primary bg-white/80 backdrop-blur-md">
+        <div class="text-2xl font-bold tracking-widest uppercase font-playfair">
+            Morning Dew<span class="text-secondary">.</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+            <a href="/" class="hover:text-secondary transition-colors">Home</a>
+            <a href="/stay" class="hover:text-secondary transition-colors">Stay</a>
+            <a href="/dine" class="hover:text-secondary transition-colors">Dine</a>
+            <a href="/experiences" class="hover:text-secondary transition-colors">Experiences</a>
+            <a href="/contact" class="hover:text-secondary transition-colors">Contact</a>
+        </div>
+        <a href="/reservation"
+            class="bg-secondary text-primary px-6 py-2 text-sm uppercase tracking-widest font-semibold hover:bg-primary hover:text-white transition-all duration-300">Book
+            Now</a>
+    </nav>
+
+    <header class="pt-40 pb-20 px-10 text-center bg-accent/10">
+        <h1 class="text-6xl font-playfair mb-4">Special Offers</h1>
+        <p class="text-gray-500 uppercase tracking-widest text-sm">Exclusive Deals for Memorable Stays</p>
+    </header>
+
+    <section class="py-24 px-10 max-w-7xl mx-auto space-y-20">
+        <!-- Offer 1 -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div class="reveal-offer overflow-hidden h-[450px]">
+                <img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                    alt="Honeymoon Package" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <p class="text-secondary uppercase tracking-[0.3em] text-xs mb-4">Romance in the Hills</p>
+                <h3 class="text-4xl font-playfair mb-6">Enchanted Honeymoon Package</h3>
+                <p class="text-gray-600 font-light mb-8 leading-relaxed">Celebrate your love amidst the misty mountains
+                    of Ella. Our honeymoon package includes a mountain-view room, candlelit dinner under the stars, and
+                    a guided sunrise trek to Little Adam’s Peak.</p>
+                <ul class="text-sm text-gray-500 space-y-2 mb-10 list-disc list-inside">
+                    <li>3 Nights in Deluxe Mountain View Room</li>
+                    <li>Daily Breakfast with a View</li>
+                    <li>Complimentary Bottle of Wine</li>
+                    <li>Private Waterfall Tour</li>
+                </ul>
+                <a href="/reservation"
+                    class="inline-block bg-primary text-white px-10 py-3 uppercase tracking-widest text-xs font-bold hover:bg-secondary transition-all">Book
+                    Package</a>
+            </div>
+        </div>
+
+        <!-- Offer 2 -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div class="md:order-last reveal-offer overflow-hidden h-[450px]">
+                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                    alt="Weekend Deal" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <p class="text-secondary uppercase tracking-[0.3em] text-xs mb-4">Short Break</p>
+                <h3 class="text-4xl font-playfair mb-6">Serenity Weekend Deal</h3>
+                <p class="text-gray-600 font-light mb-8 leading-relaxed">Escape the city rush with our exclusive weekend
+                    getaway. Enjoy a 15% discount on all suites and complementary late checkout, allowing you to soak in
+                    the Ella landscape a little longer.</p>
+                <a href="/reservation"
+                    class="inline-block border border-primary px-10 py-3 uppercase tracking-widest text-xs font-bold hover:bg-primary hover:text-white transition-all">Claim
+                    15% Off</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary text-white py-20 px-10">
+        <div class="text-center text-gray-400 text-xs">
+            &copy; 2026 Morning Dew Hotel. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>

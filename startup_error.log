@@ -1,0 +1,87 @@
+﻿node : node:internal/
+modules/cjs/loader:14
+24
+At line:1 char:1
++ node server/app.js 
+2>&1 | Out-File 
+-FilePath 
+startup_error.log 
+-Encod ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (node:in   
+ ternal/modules/c    
+js/loader:1424:S    
+tring) [], Remot    
+eException
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+  throw err;
+  ^
+
+Error: Cannot find 
+module 'express'
+Require stack:
+- C:\Users\pahan\OneD
+rive\Desktop\My 
+Coding Projects\The 
+Grove Kandy 
+1\server\app.js
+    at Module._resolv
+eFilename (node:inter
+nal/modules/cjs/loade
+r:1421:15)
+    at 
+defaultResolveImpl (n
+ode:internal/modules/
+cjs/loader:1059:19)
+    at resolveForCJSW
+ithHooks (node:intern
+al/modules/cjs/loader
+:1064:22)
+    at Module._load (
+node:internal/modules
+/cjs/loader:1227:37)
+    at TracingChannel
+.traceSync (node:diag
+nostics_channel:328:1
+4)
+    at 
+wrapModuleLoad (node:
+internal/modules/cjs/
+loader:245:24)
+    at 
+Module.require (node:
+internal/modules/cjs/
+loader:1504:12)
+    at require (node:
+internal/modules/help
+ers:152:16)
+    at 
+Object.<anonymous> (C
+:\Users\pahan\OneDriv
+e\Desktop\My Coding 
+Projects\The Grove 
+Kandy 
+1\server\app.js:1:17)
+    at 
+Module._compile (node
+:internal/modules/cjs
+/loader:1761:14) {
+  code: 
+'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\pahan
+\\OneDrive\\Desktop\\
+My Coding 
+Projects\\The Grove 
+Kandy 
+1\\server\\app.js'
+  ]
+}
+
+Node.js v24.12.0

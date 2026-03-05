@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations | Morning Dew Hotel Ella</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+
+<body class="bg-accent/5">
+    <nav id="navbar"
+        class="fixed top-0 left-0 w-full z-50 py-6 px-10 flex justify-between items-center text-primary bg-white/80 backdrop-blur-md">
+        <div class="font-playfair text-2xl uppercase tracking-widest font-bold">Morning Dew<span
+                class="text-secondary">.</span></div>
+        <a href="/" class="text-xs uppercase tracking-widest font-bold border-b border-primary pb-1">Back to Home</a>
+    </nav>
+
+    <section class="pt-40 pb-24 px-10 min-h-screen">
+        <div class="max-w-4xl mx-auto bg-white shadow-2xl overflow-hidden grid md:grid-cols-5">
+            <div class="md:col-span-2 bg-primary p-12 text-white flex flex-col justify-between">
+                <div>
+                    <h1 class="text-4xl font-playfair mb-6">Book Your Stay</h1>
+                    <p class="text-gray-300 font-light leading-relaxed">Secure your sanctuary in the hills. Select your
+                        dates and preferred room type to begin your journey.</p>
+                </div>
+                <div class="space-y-4 text-sm font-light opacity-70">
+                    <p>✓ Instant Confirmation</p>
+                    <p>✓ Best Price Guaranteed</p>
+                    <p>✓ Flexible Cancellation</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 p-12">
+                <form id="reservation-form" class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-gray-400">Guest
+                            Name</label>
+                        <input type="text" name="guestName" required
+                            class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-secondary transition-all">
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-xs uppercase tracking-widest font-bold text-gray-400">Email</label>
+                            <input type="email" name="email" required
+                                class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-secondary transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-xs uppercase tracking-widest font-bold text-gray-400">Phone</label>
+                            <input type="tel" name="phone" required
+                                class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-secondary transition-all">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label
+                                class="block text-xs uppercase tracking-widest font-bold text-gray-400">Check-In</label>
+                            <input type="date" name="checkIn" required
+                                class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-secondary transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="block text-xs uppercase tracking-widest font-bold text-gray-400">Check-Out</label>
+                            <input type="date" name="checkOut" required
+                                class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-secondary transition-all">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-gray-400">Room Type</label>
+                        <select name="roomId" required
+                            class="w-full border-b border-gray-200 py-3 bg-transparent focus:outline-none focus:border-secondary transition-all font-light">
+                            <option value="">Select a Room</option>
+                            <option value="deluxe">Deluxe Mountain View Room</option>
+                            <option value="king">King Room with Balcony</option>
+                            <option value="family">Deluxe Family Room</option>
+                            <option value="suite">Morning Dew Suite</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit"
+                            class="w-full bg-secondary text-primary py-5 uppercase tracking-[0.3em] font-bold text-sm hover:bg-primary hover:text-white transition-all duration-500">Confirm
+                            Booking</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('reservation-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const res = await fetch('/api/bookings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                    const result = await res.json();
+                    alert('Booking Confirmed! Your Booking ID: ' + result._id);
+                    e.target.reset();
+                } else {
+                    alert('Error creating booking. Please contact support.');
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        });
+    </script>
+</body>
+
+</html>

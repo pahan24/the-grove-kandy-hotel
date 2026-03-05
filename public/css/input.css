@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --hotel-dark-green: #1a2e1a;
+  --hotel-gold: #c5a059;
+  --hotel-beige: #f5f5dc;
+  --hotel-white: #ffffff;
+}
+
+@theme {
+  --color-primary: var(--hotel-dark-green);
+  --color-secondary: var(--hotel-gold);
+  --color-accent: var(--hotel-beige);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--hotel-white);
+  color: var(--hotel-dark-green);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
